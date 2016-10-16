@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (rbBM.isChecked()) {
             ket = rbBM.getText().toString();
         } else {
-            ket = "Anda belum memilih member";
+            ket = "Anda belum memilih status";
         }
 
         String fasilitas = "";
