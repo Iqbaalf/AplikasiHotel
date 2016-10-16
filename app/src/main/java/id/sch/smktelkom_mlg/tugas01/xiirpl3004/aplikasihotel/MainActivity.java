@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     Button btOk;
     TextView tvHasil;
     Spinner spTipe;
+    RadioButton rbM, rbBM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         btOk = (Button) findViewById(R.id.buttonOk);
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
         spTipe = (Spinner) findViewById(R.id.spinnerTipe);
+        rbM = (RadioButton) findViewById(R.id.radioButtonM);
+        rbBM = (RadioButton) findViewById(R.id.radioButtonBM);
 
         findViewById(R.id.buttonOk).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,9 +42,19 @@ public class MainActivity extends AppCompatActivity {
         String nama = etNama.getText().toString();
         String nomor = etNomor.getText().toString();
 
+        String ket = "";
+        if (rbM.isChecked()) {
+            ket = rbM.getText().toString();
+        } else if (rbBM.isChecked()) {
+            ket = rbBM.getText().toString();
+        } else {
+            ket = "Anda belum memilih member";
+        }
+
         if (isValid()) {
             tvHasil.setText("Nama : " + nama +
                     "\nNomor KTP : " + nomor +
+                    "\nStatus : " + ket +
                     "\nTipe Kamar : " + spTipe.getSelectedItem().toString());
         }
     }
