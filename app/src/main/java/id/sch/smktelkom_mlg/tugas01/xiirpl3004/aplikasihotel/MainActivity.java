@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tvHasil;
     Spinner spTipe;
     RadioButton rbM, rbBM;
+    CheckBox cbE, cbS, cbL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         spTipe = (Spinner) findViewById(R.id.spinnerTipe);
         rbM = (RadioButton) findViewById(R.id.radioButtonM);
         rbBM = (RadioButton) findViewById(R.id.radioButtonBM);
+        cbE = (CheckBox) findViewById(R.id.checkBoxE);
+        cbS = (CheckBox) findViewById(R.id.checkBoxS);
+        cbL = (CheckBox) findViewById(R.id.checkBoxL);
 
         findViewById(R.id.buttonOk).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,11 +56,19 @@ public class MainActivity extends AppCompatActivity {
             ket = "Anda belum memilih member";
         }
 
+        String fasilitas = "";
+        int startlen = fasilitas.length();
+        if (cbE.isChecked()) fasilitas += cbE.getText().toString() + ", ";
+        if (cbS.isChecked()) fasilitas += cbS.getText().toString() + ", ";
+        if (cbL.isChecked()) fasilitas += cbL.getText().toString() + ".";
+        if (fasilitas.length() == startlen) fasilitas = "Anda tidak menggunakan fasilitas tambahan";
+
         if (isValid()) {
-            tvHasil.setText("Nama : " + nama +
-                    "\nNomor KTP : " + nomor +
-                    "\nStatus : " + ket +
-                    "\nTipe Kamar : " + spTipe.getSelectedItem().toString());
+            tvHasil.setText("Nama \t\t\t\t\t\t\t: " + nama +
+                    "\nNomor KTP \t\t\t\t: " + nomor +
+                    "\nStatus \t\t\t\t\t\t: " + ket +
+                    "\nTipe Kamar \t\t\t\t: " + spTipe.getSelectedItem().toString() +
+                    "\nFasilitas Tambahan \t: " + fasilitas);
         }
     }
 

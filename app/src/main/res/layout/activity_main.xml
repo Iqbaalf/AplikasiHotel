@@ -71,6 +71,33 @@
         android:layout_height="wrap_content"
         android:entries="@array/tipe" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fasilitas" />
+
+    <CheckBox
+        android:id="@+id/checkBoxE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="Extrabed" />
+
+    <CheckBox
+        android:id="@+id/checkBoxS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="Sarapan" />
+
+    <CheckBox
+        android:id="@+id/checkBoxL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="Laundry" />
+
     <Button
         android:id="@+id/buttonOk"
         android:layout_width="wrap_content"
