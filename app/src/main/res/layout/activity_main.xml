@@ -33,6 +33,18 @@
         android:hint="Nomor KTP"
         android:inputType="numberSigned" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipe Kamar" />
+
+    <Spinner
+        android:id="@+id/spinnerTipe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/tipe" />
+
     <Button
         android:id="@+id/buttonOk"
         android:layout_width="wrap_content"

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -12,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etNama, etNomor;
     Button btOk;
     TextView tvHasil;
+    Spinner spTipe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         etNomor = (EditText) findViewById(R.id.editTextKtp);
         btOk = (Button) findViewById(R.id.buttonOk);
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
+        spTipe = (Spinner) findViewById(R.id.spinnerTipe);
 
         findViewById(R.id.buttonOk).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (isValid()) {
             tvHasil.setText("Nama : " + nama +
-                    "\nNomor KTP : " + nomor);
+                    "\nNomor KTP : " + nomor +
+                    "\nTipe Kamar : " + spTipe.getSelectedItem().toString());
         }
     }
 
